@@ -1,7 +1,7 @@
 package pakage1;
 
 
-import pakage1.Mainframe;
+import pakage1.loginForm;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,7 +33,6 @@ public class register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,61 +73,63 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(180, 20, 100, 100);
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("REGISTER");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 10, 140, 32);
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Re-type Password:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(120, 380, 190, 40);
+        jLabel3.setBounds(120, 380, 170, 40);
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CLINIC APPOINTMENT SYSTEM");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(300, 60, 380, 32);
+        jLabel4.setBounds(300, 60, 380, 28);
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Register as:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(120, 430, 190, 30);
+        jLabel5.setBounds(120, 420, 170, 30);
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Lastname:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(120, 220, 190, 30);
+        jLabel6.setBounds(120, 220, 170, 30);
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Email:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(120, 260, 190, 40);
+        jLabel7.setBounds(120, 260, 170, 40);
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Phone No.");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(120, 300, 190, 40);
+        jLabel8.setBounds(120, 300, 170, 40);
 
-        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Password:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(120, 340, 190, 40);
+        jLabel9.setBounds(120, 340, 170, 40);
+
+        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(310, 380, 450, 30);
+        jTextField1.setBounds(290, 380, 450, 30);
+
+        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(jTextField2);
-        jTextField2.setBounds(310, 180, 450, 30);
+        jTextField2.setBounds(290, 180, 450, 30);
+
+        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(jTextField3);
-        jTextField3.setBounds(310, 220, 450, 30);
+        jTextField3.setBounds(290, 220, 450, 30);
+
+        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(jTextField4);
-        jTextField4.setBounds(310, 260, 450, 30);
+        jTextField4.setBounds(290, 260, 450, 30);
 
         jPanel2.setBackground(new java.awt.Color(183, 30, 30));
         jPanel2.setLayout(null);
@@ -195,12 +196,16 @@ public class register extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 0, 0);
-        jPanel1.add(jTextField9);
-        jTextField9.setBounds(310, 300, 450, 30);
-        jPanel1.add(jTextField10);
-        jTextField10.setBounds(310, 340, 450, 30);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(jTextField9);
+        jTextField9.setBounds(290, 300, 450, 30);
+
+        jTextField10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(jTextField10);
+        jTextField10.setBounds(290, 340, 450, 30);
+
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("REGISTER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -209,17 +214,17 @@ public class register extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(710, 520, 130, 30);
+        jButton1.setBounds(660, 500, 130, 30);
 
-        jLabel19.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Firstname:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(120, 180, 190, 30);
+        jLabel19.setBounds(120, 180, 170, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secretary", "Doctor" }));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(310, 430, 450, 30);
+        jComboBox1.setBounds(290, 420, 450, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,7 +242,7 @@ public class register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Mainframe mf = new Mainframe();
+        loginForm mf = new loginForm();
         mf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -291,7 +296,6 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

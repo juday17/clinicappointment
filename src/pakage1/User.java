@@ -10,7 +10,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static pakage1.Mainframe.Login;
+import static pakage1.loginForm.Login;
 
 
 /**
@@ -76,10 +76,10 @@ public class User extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(183, 30, 30));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("PATIENT INFORMATION");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 21, -1, 31));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 220, 50));
 
         arrows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
         jPanel2.add(arrows, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 37, 31));
@@ -108,12 +108,12 @@ public class User extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(183, 30, 30));
         jLabel1.setText("Last name:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 150, 44));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 130, 44));
 
-        lastname.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        lastname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lastname.setForeground(new java.awt.Color(183, 30, 30));
         lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         lastname.setBorder(null);
@@ -126,12 +126,12 @@ public class User extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 390, 11));
 
         jLabel3.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(183, 30, 30));
         jLabel3.setText("First name:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 150, 44));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 130, 44));
 
-        firstname.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        firstname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         firstname.setForeground(new java.awt.Color(183, 30, 30));
         firstname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         firstname.setBorder(null);
@@ -144,12 +144,12 @@ public class User extends javax.swing.JFrame {
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 390, 11));
 
         jLabel4.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(183, 30, 30));
         jLabel4.setText("Middle name:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 160, 44));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 140, 44));
 
-        middle.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        middle.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         middle.setForeground(new java.awt.Color(183, 30, 30));
         middle.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         middle.setBorder(null);
@@ -162,12 +162,12 @@ public class User extends javax.swing.JFrame {
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 390, 11));
 
         jLabel5.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(183, 30, 30));
         jLabel5.setText("Date (mm/dd/yy):");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 190, 44));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 44));
 
-        date.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        date.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         date.setForeground(new java.awt.Color(183, 30, 30));
         date.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         date.setBorder(null);
@@ -180,12 +180,12 @@ public class User extends javax.swing.JFrame {
         jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 390, 11));
 
         jLabel6.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(183, 30, 30));
         jLabel6.setText("Time:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 110, 44));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 120, 44));
 
-        time.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        time.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         time.setForeground(new java.awt.Color(183, 30, 30));
         time.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         time.setBorder(null);
@@ -198,9 +198,9 @@ public class User extends javax.swing.JFrame {
         jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 390, 11));
 
         next.setBackground(new java.awt.Color(255, 255, 255));
-        next.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        next.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         next.setForeground(new java.awt.Color(183, 30, 30));
-        next.setText("Next");
+        next.setText("Submit");
         next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 nextMouseEntered(evt);
@@ -214,10 +214,10 @@ public class User extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 486, 130, 40));
+        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 130, 40));
 
         cancel.setBackground(new java.awt.Color(255, 255, 255));
-        cancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cancel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         cancel.setForeground(new java.awt.Color(183, 30, 30));
         cancel.setText("Cancel");
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,15 +233,15 @@ public class User extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 486, 140, 40));
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 140, 40));
 
         jLabel7.setBackground(new java.awt.Color(183, 30, 30));
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(183, 30, 30));
         jLabel7.setText("Phone number:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 180, 44));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 130, 44));
 
-        phone.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        phone.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phone.setForeground(new java.awt.Color(183, 30, 30));
         phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         phone.setBorder(null);
@@ -281,6 +281,7 @@ public class User extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
@@ -318,7 +319,7 @@ public class User extends javax.swing.JFrame {
         }
          float change = (float)quantity - 500;
          JOptionPane.showMessageDialog(null,"Change: "+change+" Appointment successfully booked.");
-         userTable.AddRowToJTable(new Object[]{lastname.getText(),firstname.getText(),middle.getText(),phone.getText(),date.getText(),time.getText()});
+         patientList.AddRowToJTable(new Object[]{lastname.getText(),firstname.getText(),middle.getText(),phone.getText(),date.getText(),time.getText()});
       
         lastname.setText("");firstname.setText("");middle.setText("");phone.setText("");date.setText("");time.setText("");
 //       userTable user = new userTable();
