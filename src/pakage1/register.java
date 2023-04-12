@@ -1,6 +1,13 @@
 package pakage1;
 
 
+import config.login_db;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import pakage1.loginForm;
 
 /*
@@ -33,17 +40,15 @@ public class register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        firstname = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -58,11 +63,11 @@ public class register extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        no = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        register = new javax.swing.JComboBox<>();
+        password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,12 +77,6 @@ public class register extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/logo3.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(180, 20, 100, 100);
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Re-type Password:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(120, 380, 170, 40);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,7 +88,7 @@ public class register extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Register as:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(120, 420, 170, 30);
+        jLabel5.setBounds(120, 380, 170, 30);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,7 +98,7 @@ public class register extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Email:");
+        jLabel7.setText("Username:");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(120, 260, 170, 40);
 
@@ -115,21 +114,17 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(120, 340, 170, 40);
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(290, 380, 450, 30);
+        firstname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(firstname);
+        firstname.setBounds(290, 180, 450, 30);
 
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(290, 180, 450, 30);
+        lastname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(lastname);
+        lastname.setBounds(290, 220, 450, 30);
 
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(290, 220, 450, 30);
-
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(290, 260, 450, 30);
+        username.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(username);
+        username.setBounds(290, 260, 450, 30);
 
         jPanel2.setBackground(new java.awt.Color(183, 30, 30));
         jPanel2.setLayout(null);
@@ -197,13 +192,9 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 0, 0);
 
-        jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField9);
-        jTextField9.setBounds(290, 300, 450, 30);
-
-        jTextField10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jPanel1.add(jTextField10);
-        jTextField10.setBounds(290, 340, 450, 30);
+        no.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(no);
+        no.setBounds(290, 300, 450, 30);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
@@ -214,7 +205,7 @@ public class register extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(660, 500, 130, 30);
+        jButton1.setBounds(630, 470, 130, 30);
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -222,9 +213,11 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(jLabel19);
         jLabel19.setBounds(120, 180, 170, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secretary", "Doctor" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(290, 420, 450, 30);
+        register.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secretary", "Doctor" }));
+        jPanel1.add(register);
+        register.setBounds(290, 380, 450, 30);
+        jPanel1.add(password);
+        password.setBounds(291, 340, 450, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,9 +235,55 @@ public class register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        loginForm mf = new loginForm();
-        mf.setVisible(true);
-        this.dispose();
+        if (firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(lastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (username.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Username!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(no.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(password.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String fname = firstname.getText();
+        String lname = lastname.getText();
+        String uname = username.getText();
+        String cont = no.getText();
+        String pass = String.valueOf(password.getPassword());    
+               
+         
+        PreparedStatement ps;
+        ResultSet rs;
+        String registerUserQuery = "INSERT INTO `user_db`(`u_firstname`, `u_lastname`, `u_username`, `u_contact`, `u_password`) VALUES (?,?,?,?,?)";
+                 
+                 try {
+                     
+                     ps = login_db.getConnection().prepareStatement(registerUserQuery);
+                     ps.setString(1, fname);
+                     ps.setString(2, lname);
+                     ps.setString(3, uname);
+                     ps.setString(4, cont);
+                     ps.setString(5, pass);
+                    
+                           if(ps.executeUpdate() != 0){
+                             JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
+                         }else{
+                             JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+                         }
+                 } catch (SQLException ex) {
+                     Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 
+                loginForm lo = new loginForm();
+                lo.setVisible(true);
+                this.dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -283,8 +322,8 @@ public class register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField firstname;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -296,7 +335,6 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -305,15 +343,14 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField lastname;
+    private javax.swing.JTextField no;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JComboBox<String> register;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

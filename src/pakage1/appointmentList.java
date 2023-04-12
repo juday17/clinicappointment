@@ -5,7 +5,11 @@
  */
 package pakage1;
 
+import config.dbconfig;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -19,6 +23,21 @@ public class appointmentList extends javax.swing.JFrame {
     public appointmentList() {
         initComponents();
     }
+    
+    public void displayData(){
+       
+        try{
+       
+            dbconfig dbc = new dbconfig();
+            ResultSet rs = dbc.getData("SELECT tbl_doctor.d_id,tbl_doctor.d_lastname,tbl_doctor.d_firstname,tbl_doctor.d_contact,tbl_patient.p_id,tbl_patient.p_lastname,tbl_patient.p_firstname,tbl_patient.p_contact,tbl_patient.p_date,tbl_patient.p_time,tbl_patient.p_remark FROM tbl_appointment LEFT JOIN tbl_doctor ON tbl_appointment.d_id = tbl_doctor.d_id LEFT JOIN tbl_patient ON tbl_appointment.p_id = tbl_patient.p_id");
+            tableappointment.setModel(DbUtils.resultSetToTableModel(rs));
+       
+        }catch(SQLException ex){
+            System.out.println("Error Message: "+ex);
+       
+        }
+    }
+    
         public void reset(){
         id.setText("");
         lastname.setText("");
@@ -30,6 +49,8 @@ public class appointmentList extends javax.swing.JFrame {
         status.setText("");
         address.setText("");       
     }
+        
+        
     
     
     
@@ -224,6 +245,11 @@ public class appointmentList extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(183, 30, 30));
         jButton1.setText("DISPLAY");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(670, 530, 120, 30);
 
@@ -322,6 +348,10 @@ public class appointmentList extends javax.swing.JFrame {
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         reset();
     }//GEN-LAST:event_clearActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        displayData();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

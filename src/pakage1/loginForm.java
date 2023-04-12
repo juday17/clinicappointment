@@ -6,8 +6,15 @@
 package pakage1;
 
 import static com.sun.org.glassfish.external.probe.provider.StatsProviderManager.register;
+import config.login_db;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -195,30 +202,65 @@ public class loginForm extends javax.swing.JFrame {
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
        
-        String name = username.getText();
-        String pss = password.getText();
-        if(jCombo.getSelectedIndex()==1){
-         if(username.getText().isEmpty()|| password.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null,"Please Fill up other fields.","Message",JOptionPane.WARNING_MESSAGE);
-       }else{
-             
-        Admin us = new Admin();
-        us.setVisible(true); 
-        Admin.btn2.setVisible(false);
-        Admin.btn3.setVisible(false);
-        this.dispose();
-         }
-        }if(jCombo.getSelectedIndex()==2){
-            if(username.getText().isEmpty()|| password.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null,"Please Fill up other fields.","Message",JOptionPane.WARNING_MESSAGE);
-       }else{
-            
-            Admin ad = new Admin();
-            Admin.admin_User.setText("Dr. "+name);
-            
-            ad.setVisible(true);
-            this.dispose();
+        PreparedStatement st;      
+        ResultSet rs;
+        
+        // get the username & password
+        String user = username.getText();
+        String pass = String.valueOf(password.getPassword());
+        
+        //create a select query to check if the username and the password exist in the database
+        String query = "SELECT * FROM `user_db` WHERE `u_username` = ? AND `u_password` = ?";
+        
+        // show a message if the username or the password fields are empty
+       
+        if(pass.trim().equals("user"))
+        {
+            JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
         }
+        else if(user.trim().equals("pass"))
+        {
+            JOptionPane.showMessageDialog(null, "Enter Your Password", "Empty Password", 2);
+        }else
+            
+        {
+            
+            try {
+            st = login_db.getConnection().prepareStatement(query);
+            
+            st.setString(1, user);
+            st.setString(2, pass);
+            rs = st.executeQuery();
+            
+            if(rs.next())
+            {
+                // show a new form
+                Admin am = new Admin();
+                am.setVisible(true);
+                am.pack();
+                if(rs.next()){
+                    
+               user =rs.getString("user");
+               
+               Admin da = new Admin();
+               da.setVisible(true);
+                           
+               
+               
+                }
+                am.setLocationRelativeTo(null);
+                // close the current form(login form)
+                this.dispose();           
+                
+            }else{
+                // error message
+                JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
         }
     }//GEN-LAST:event_LoginActionPerformed
 
