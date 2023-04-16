@@ -31,7 +31,7 @@ public class doctorList extends javax.swing.JFrame {
        
             dbconfig dbc = new dbconfig();
             ResultSet rs = dbc.getData("SELECT * FROM tbl_doctor");
-            patienttable.setModel(DbUtils.resultSetToTableModel(rs));
+            doctable.setModel(DbUtils.resultSetToTableModel(rs));
        
         }catch(SQLException ex){
             System.out.println("Error Message: "+ex);    
@@ -69,6 +69,8 @@ public class doctorList extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        arrows = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -125,6 +127,19 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 40, 30));
+
+        arrows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
+        arrows.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arrowsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(arrows, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 34, 31));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("DOCTOR APPOINTMENT LIST");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, 50));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 880, 50);
@@ -343,9 +358,36 @@ public class doctorList extends javax.swing.JFrame {
     }//GEN-LAST:event_updateActionPerformed
 
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+      
+        if (lastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (middle.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Middle Name!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(gender.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Gender!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(status.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Status!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(address.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Address!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(contact.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact No!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(email.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Email!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         dbconfig dbc = new dbconfig();
-        dbc.insertData("INSERT INTO tbl_doctor (d_lastname, d_firstname, d_middle, d_gender, d_status, d_address, d_contact, d_email,) "
-                + "VALUES ('"+lastname.getText()+"', '"+firstname.getText()+"','"+middle.getText()+"','"+gender.getText()+"','"+status.getText()+"','"+address.getText()+"','"+contact.getText()+"','"+email.getText()+"'");
+        dbc.insertData("INSERT INTO tbl_doctor (d_lastname, d_firstname, d_middle, d_gender, d_status, d_address, d_contact, d_email)"
+                + "VALUES ('"+lastname.getText()+"', '"+firstname.getText()+"','"+middle.getText()+"','"+gender.getText()+"','"+status.getText()+"','"+address.getText()+"','"+contact.getText()+"','"+email.getText()+"')");
         
         displayData();
         reset();
@@ -381,6 +423,12 @@ public class doctorList extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void arrowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowsMouseClicked
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_arrowsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -420,6 +468,7 @@ public class doctorList extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea address;
+    private javax.swing.JLabel arrows;
     private javax.swing.JButton clear;
     private javax.swing.JTextField contact;
     private javax.swing.JButton delete;
@@ -433,6 +482,7 @@ public class doctorList extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

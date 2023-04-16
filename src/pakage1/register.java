@@ -68,8 +68,12 @@ public class register extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         register = new javax.swing.JComboBox<>();
         password = new javax.swing.JPasswordField();
+        arrows = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(183, 30, 30));
         jPanel1.setLayout(null);
@@ -219,6 +223,37 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(password);
         password.setBounds(291, 340, 450, 30);
 
+        arrows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
+        arrows.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arrowsMouseClicked(evt);
+            }
+        });
+        jPanel1.add(arrows);
+        arrows.setBounds(20, 10, 50, 50);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("__");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(790, 10, 40, 40);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("X");
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(820, 10, 50, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -286,6 +321,23 @@ public class register extends javax.swing.JFrame {
                 this.dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void arrowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowsMouseClicked
+        loginForm lo = new loginForm();
+        lo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_arrowsMouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        setState(ICONIFIED);
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        int a=JOptionPane.showConfirmDialog(null, "Confirm Exit?");
+        if(a==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel21MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -322,6 +374,7 @@ public class register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel arrows;
     private javax.swing.JTextField firstname;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -335,6 +388,8 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

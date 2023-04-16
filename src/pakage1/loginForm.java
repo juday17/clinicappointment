@@ -136,7 +136,7 @@ public class loginForm extends javax.swing.JFrame {
                 LoginActionPerformed(evt);
             }
         });
-        jPanel1.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 200, 36));
+        jPanel1.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 200, 36));
 
         label1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +148,7 @@ public class loginForm extends javax.swing.JFrame {
                 label1MouseClicked(evt);
             }
         });
-        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 420, 27));
+        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 420, 27));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -158,7 +158,7 @@ public class loginForm extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 40, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 40, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

@@ -38,22 +38,7 @@ public class appointmentList extends javax.swing.JFrame {
         }
     }
     
-        public void reset(){
-        id.setText("");
-        lastname.setText("");
-        firstname.setText("");
-        middle.setText("");
-        gender1.setText("");
-        contact.setText("");
-        email.setText("");
-        status.setText("");
-        address.setText("");       
-    }
-        
-        
-    
-    
-    
+
     
 
     /**
@@ -69,31 +54,9 @@ public class appointmentList extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
-        lastname = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        firstname = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        contact = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        address = new javax.swing.JTextArea();
+        arrows1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        status = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        middle = new javax.swing.JTextField();
-        gender1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        clear = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableappointment = new javax.swing.JTable();
 
@@ -126,123 +89,23 @@ public class appointmentList extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 40, 30));
 
+        arrows1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
+        arrows1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arrows1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(arrows1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 34, 31));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("APPOINTMENT LIST");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 260, 50));
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 880, 50);
 
-        jLabel13.setText("ID:");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(60, 310, 80, 30);
-
-        id.setEditable(false);
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        jPanel1.add(id);
-        id.setBounds(140, 310, 270, 30);
-
-        lastname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastnameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lastname);
-        lastname.setBounds(140, 350, 270, 30);
-
-        jLabel14.setText("Lastname:");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(60, 350, 80, 30);
-
-        firstname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstnameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(firstname);
-        firstname.setBounds(140, 390, 270, 30);
-
-        jLabel15.setText("Firstname:");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(60, 390, 80, 30);
-
-        jLabel16.setText("Gender:");
-        jPanel1.add(jLabel16);
-        jLabel16.setBounds(60, 470, 80, 30);
-
-        jLabel18.setText("Status:");
-        jPanel1.add(jLabel18);
-        jLabel18.setBounds(470, 390, 80, 30);
-
-        jLabel20.setText("Address:");
-        jPanel1.add(jLabel20);
-        jLabel20.setBounds(470, 430, 80, 30);
-
-        contact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactActionPerformed(evt);
-            }
-        });
-        jPanel1.add(contact);
-        contact.setBounds(550, 310, 270, 30);
-
-        jLabel21.setText("Contact:");
-        jPanel1.add(jLabel21);
-        jLabel21.setBounds(470, 310, 80, 30);
-
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(email);
-        email.setBounds(550, 350, 270, 30);
-
-        jLabel22.setText("Email:");
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(470, 350, 80, 30);
-
-        address.setColumns(20);
-        address.setRows(5);
-        jScrollPane1.setViewportView(address);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(550, 430, 270, 70);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("APPOINTMENT ");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 60, 260, 50);
-
-        status.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusActionPerformed(evt);
-            }
-        });
-        jPanel1.add(status);
-        status.setBounds(550, 390, 270, 30);
-
-        jLabel19.setText("Middle Initial:");
-        jPanel1.add(jLabel19);
-        jLabel19.setBounds(60, 430, 80, 30);
-
-        middle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(middle);
-        middle.setBounds(140, 430, 270, 30);
-
-        gender1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gender1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(gender1);
-        gender1.setBounds(140, 470, 270, 30);
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(183, 30, 30));
         jButton1.setText("DISPLAY");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -251,41 +114,12 @@ public class appointmentList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(670, 530, 120, 30);
-
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(183, 30, 30));
-        jButton3.setText("INSERT");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(170, 530, 100, 30);
-
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(183, 30, 30));
-        jButton4.setText("UPDATE");
-        jPanel1.add(jButton4);
-        jButton4.setBounds(300, 530, 100, 30);
-
-        clear.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        clear.setForeground(new java.awt.Color(183, 30, 30));
-        clear.setText("CLEAR");
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clear);
-        clear.setBounds(420, 530, 100, 30);
-
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(183, 30, 30));
-        jButton6.setText("DELETE");
-        jPanel1.add(jButton6);
-        jButton6.setBounds(550, 530, 100, 30);
+        jButton1.setBounds(740, 530, 120, 30);
 
         jScrollPane2.setViewportView(tableappointment);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 110, 840, 170);
+        jScrollPane2.setBounds(20, 110, 840, 400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -302,26 +136,6 @@ public class appointmentList extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameActionPerformed
-
-    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameActionPerformed
-
-    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactActionPerformed
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         int a=JOptionPane.showConfirmDialog(null, "Confirm Exit?");
         if(a==JOptionPane.YES_OPTION){
@@ -333,25 +147,15 @@ public class appointmentList extends javax.swing.JFrame {
         setState(ICONIFIED);
     }//GEN-LAST:event_jLabel25MouseClicked
 
-    private void middleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_middleActionPerformed
-
-    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusActionPerformed
-
-    private void gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gender1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gender1ActionPerformed
-
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        reset();
-    }//GEN-LAST:event_clearActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         displayData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void arrows1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrows1MouseClicked
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_arrows1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -390,36 +194,14 @@ public class appointmentList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextArea address;
-    private javax.swing.JButton clear;
-    public javax.swing.JTextField contact;
-    public javax.swing.JTextField email;
-    public javax.swing.JTextField firstname;
-    public javax.swing.JTextField gender1;
-    public javax.swing.JTextField id;
+    private javax.swing.JLabel arrows1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTextField lastname;
-    public javax.swing.JTextField middle;
-    public javax.swing.JTextField status;
     private javax.swing.JTable tableappointment;
     // End of variables declaration//GEN-END:variables
 }

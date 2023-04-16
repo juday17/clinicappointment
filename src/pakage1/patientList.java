@@ -469,6 +469,44 @@ public class patientList extends javax.swing.JFrame {
     }//GEN-LAST:event_insertMouseExited
 
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+        
+        if (lastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (middle.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Middle Name!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(gender.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Gender!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(status.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Status!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(email.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Email!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(address.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Address!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(contact.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(date.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Date!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(time.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Time!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(remark.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Remark!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        
         dbconfig dbc = new dbconfig();
         dbc.insertData("INSERT INTO tbl_patient (p_lastname, p_firstname, p_middle, p_gender, p_status, p_email, p_address, p_contact, p_date, p_time, p_remark) "
                 + "VALUES ('"+lastname.getText()+"', '"+firstname.getText()+"','"+middle.getText()+"','"+gender.getText()+"','"+status.getText()+"','"+email.getText()+"','"+address.getText()+"','"+contact.getText()+"','"+date.getText()+"','"+time.getText()+"','"+remark.getText()+"')");       

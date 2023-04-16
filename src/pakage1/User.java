@@ -200,7 +200,7 @@ public class User extends javax.swing.JFrame {
         next.setBackground(new java.awt.Color(255, 255, 255));
         next.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         next.setForeground(new java.awt.Color(183, 30, 30));
-        next.setText("Submit");
+        next.setText("SUBMIT");
         next.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 nextMouseEntered(evt);
@@ -219,7 +219,7 @@ public class User extends javax.swing.JFrame {
         cancel.setBackground(new java.awt.Color(255, 255, 255));
         cancel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         cancel.setForeground(new java.awt.Color(183, 30, 30));
-        cancel.setText("Cancel");
+        cancel.setText("CANCEL");
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cancelMouseEntered(evt);
