@@ -10,9 +10,11 @@ import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -121,6 +123,7 @@ public class patientList extends javax.swing.JFrame {
         status = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
+        print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -185,7 +188,7 @@ public class patientList extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, -1, 30));
+        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, -1, 30));
 
         display.setBackground(new java.awt.Color(255, 255, 255));
         display.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -204,7 +207,7 @@ public class patientList extends javax.swing.JFrame {
                 displayActionPerformed(evt);
             }
         });
-        jPanel3.add(display, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 98, 30));
+        jPanel3.add(display, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, 98, 30));
 
         patienttable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -279,7 +282,7 @@ public class patientList extends javax.swing.JFrame {
                 insertActionPerformed(evt);
             }
         });
-        jPanel3.add(insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 98, 30));
+        jPanel3.add(insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 98, 30));
 
         update.setBackground(new java.awt.Color(255, 255, 255));
         update.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -298,7 +301,7 @@ public class patientList extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
-        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 100, 30));
+        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 100, 30));
 
         clear.setBackground(new java.awt.Color(255, 255, 255));
         clear.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -317,7 +320,7 @@ public class patientList extends javax.swing.JFrame {
                 clearActionPerformed(evt);
             }
         });
-        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, 100, 30));
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Gender:");
@@ -378,7 +381,7 @@ public class patientList extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
-        jPanel3.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 98, 30));
+        jPanel3.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 98, 30));
 
         status.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 310, 30));
@@ -389,21 +392,42 @@ public class patientList extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 176, 310, 80));
 
+        print.setBackground(new java.awt.Color(255, 255, 255));
+        print.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        print.setForeground(new java.awt.Color(183, 30, 30));
+        print.setText("PRINT");
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                printMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                printMouseExited(evt);
+            }
+        });
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+        jPanel3.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 100, 30));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -620,6 +644,28 @@ public class patientList extends javax.swing.JFrame {
         setState(ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_printMouseEntered
+
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_printMouseExited
+
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+     MessageFormat header = new MessageFormat ("CLINIC APPOINTMENT TRACKER");
+     MessageFormat footer = new MessageFormat ("Clinic Appointment Tracker");
+       
+    try{
+       patienttable.print(JTable.PrintMode.NORMAL,header,footer);
+    
+    }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
+    }
+    
+   
+    }//GEN-LAST:event_printActionPerformed
+
 public static void AddRowToJTable(Object[] dataRow){
            DefaultTableModel model = (DefaultTableModel)patienttable.getModel();
            model.addRow(dataRow);
@@ -699,6 +745,7 @@ public static void AddRowToJTable(Object[] dataRow){
     private javax.swing.JTextField middle;
     private javax.swing.JButton next;
     public static javax.swing.JTable patienttable;
+    private javax.swing.JButton print;
     private javax.swing.JTextField remark;
     private javax.swing.JTextField status;
     private javax.swing.JTextField time;

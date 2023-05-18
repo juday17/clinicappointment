@@ -7,8 +7,11 @@ package pakage1;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import static pakage1.loginForm.Login;
 
@@ -65,6 +68,10 @@ public class User extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         phone = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
+        uploadpic = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -111,7 +118,7 @@ public class User extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(183, 30, 30));
         jLabel1.setText("Last name:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 130, 44));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 130, 44));
 
         lastname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lastname.setForeground(new java.awt.Color(183, 30, 30));
@@ -122,14 +129,14 @@ public class User extends javax.swing.JFrame {
                 lastnameActionPerformed(evt);
             }
         });
-        jPanel3.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 390, 44));
-        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 390, 11));
+        jPanel3.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 390, 44));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 390, 11));
 
         jLabel3.setBackground(new java.awt.Color(183, 30, 30));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(183, 30, 30));
         jLabel3.setText("First name:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 130, 44));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 44));
 
         firstname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         firstname.setForeground(new java.awt.Color(183, 30, 30));
@@ -140,14 +147,14 @@ public class User extends javax.swing.JFrame {
                 firstnameActionPerformed(evt);
             }
         });
-        jPanel3.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 390, 44));
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 390, 11));
+        jPanel3.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 390, 44));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 390, 11));
 
         jLabel4.setBackground(new java.awt.Color(183, 30, 30));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(183, 30, 30));
         jLabel4.setText("Middle name:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 140, 44));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, 44));
 
         middle.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         middle.setForeground(new java.awt.Color(183, 30, 30));
@@ -158,14 +165,14 @@ public class User extends javax.swing.JFrame {
                 middleActionPerformed(evt);
             }
         });
-        jPanel3.add(middle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 390, 44));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 390, 11));
+        jPanel3.add(middle, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 390, 44));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 390, 10));
 
         jLabel5.setBackground(new java.awt.Color(183, 30, 30));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(183, 30, 30));
         jLabel5.setText("Date (mm/dd/yy):");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 44));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 140, 44));
 
         date.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         date.setForeground(new java.awt.Color(183, 30, 30));
@@ -176,14 +183,14 @@ public class User extends javax.swing.JFrame {
                 dateActionPerformed(evt);
             }
         });
-        jPanel3.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 390, 44));
-        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 390, 11));
+        jPanel3.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 390, 44));
+        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 390, 11));
 
         jLabel6.setBackground(new java.awt.Color(183, 30, 30));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(183, 30, 30));
         jLabel6.setText("Time:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 120, 44));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 120, 44));
 
         time.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         time.setForeground(new java.awt.Color(183, 30, 30));
@@ -194,8 +201,8 @@ public class User extends javax.swing.JFrame {
                 timeActionPerformed(evt);
             }
         });
-        jPanel3.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 390, 44));
-        jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 390, 11));
+        jPanel3.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 390, 44));
+        jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 390, 11));
 
         next.setBackground(new java.awt.Color(255, 255, 255));
         next.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -214,7 +221,7 @@ public class User extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 130, 40));
+        jPanel3.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 130, 40));
 
         cancel.setBackground(new java.awt.Color(255, 255, 255));
         cancel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -233,13 +240,13 @@ public class User extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 140, 40));
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 140, 40));
 
         jLabel7.setBackground(new java.awt.Color(183, 30, 30));
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(183, 30, 30));
         jLabel7.setText("Phone number:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 130, 44));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 130, 44));
 
         phone.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         phone.setForeground(new java.awt.Color(183, 30, 30));
@@ -250,22 +257,75 @@ public class User extends javax.swing.JFrame {
                 phoneActionPerformed(evt);
             }
         });
-        jPanel3.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 390, 44));
-        jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 390, 11));
+        jPanel3.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 390, 44));
+        jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 390, 10));
+
+        uploadpic.setBackground(new java.awt.Color(204, 0, 0));
+        uploadpic.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        uploadpic.setText("UPLOAD PHOTO");
+        uploadpic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uploadpicActionPerformed(evt);
+            }
+        });
+        jPanel3.add(uploadpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+
+        jLabel10.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
+
+        jPanel5.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 120));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -374,6 +434,28 @@ public class User extends javax.swing.JFrame {
         setState(ICONIFIED);
     }//GEN-LAST:event_jLabel13MouseClicked
 
+    private void uploadpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadpicActionPerformed
+    JFileChooser browseImageFile = new JFileChooser();
+    FileNameExtensionFilter fnaf = new FileNameExtensionFilter ("IMAGES", "png","jpg", "jpeg");
+    browseImageFile.addChoosableFileFilter (fnaf);
+    int showOpenDialogue = browseImageFile.showOpenDialog (null);
+
+    if (showOpenDialogue == JFileChooser.APPROVE_OPTION);
+    File selectedImageFile = browseImageFile.getSelectedFile ();
+    String selectedImagePath = selectedImageFile.getAbsolutePath();
+    JOptionPane.showMessageDialog(null, selectedImagePath);
+    
+    ImageIcon ii = new ImageIcon(selectedImagePath);
+    
+    Image image = ii.getImage().getScaledInstance(jLabel10.getWidth(), jLabel10.getHeight(), Image.SCALE_SMOOTH);
+    jLabel10.setIcon ( new ImageIcon ( image));
+   
+    }//GEN-LAST:event_uploadpicActionPerformed
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel5MouseClicked
+
 //       public static void AddRowToJTable(Object[] dataRow){
 //           DefaultTableModel model = {DefaultTableModel}table.getModel();
 //       }
@@ -418,6 +500,7 @@ public class User extends javax.swing.JFrame {
     public static javax.swing.JTextField date;
     public static javax.swing.JTextField firstname;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -429,6 +512,8 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -440,5 +525,6 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JButton next;
     public static javax.swing.JTextField phone;
     public static javax.swing.JTextField time;
+    private javax.swing.JButton uploadpic;
     // End of variables declaration//GEN-END:variables
 }

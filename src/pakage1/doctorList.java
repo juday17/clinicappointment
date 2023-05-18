@@ -8,7 +8,9 @@ package pakage1;
 import config.dbconfig;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 import static pakage1.patientList.patienttable;
@@ -98,6 +100,7 @@ public class doctorList extends javax.swing.JFrame {
         clear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
+        print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -247,7 +250,7 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(display);
-        display.setBounds(630, 280, 110, 30);
+        display.setBounds(710, 290, 110, 30);
 
         insert.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         insert.setForeground(new java.awt.Color(183, 30, 30));
@@ -258,7 +261,7 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(insert);
-        insert.setBounds(150, 280, 110, 30);
+        insert.setBounds(210, 290, 110, 30);
 
         update.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         update.setForeground(new java.awt.Color(183, 30, 30));
@@ -269,7 +272,7 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(270, 280, 110, 30);
+        update.setBounds(350, 290, 110, 30);
 
         delete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         delete.setForeground(new java.awt.Color(183, 30, 30));
@@ -280,7 +283,7 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(delete);
-        delete.setBounds(390, 280, 110, 30);
+        delete.setBounds(470, 290, 110, 30);
 
         clear.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         clear.setForeground(new java.awt.Color(183, 30, 30));
@@ -291,7 +294,7 @@ public class doctorList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(clear);
-        clear.setBounds(510, 280, 110, 30);
+        clear.setBounds(590, 290, 110, 30);
 
         address.setColumns(20);
         address.setRows(5);
@@ -299,6 +302,17 @@ public class doctorList extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(540, 366, 260, 80);
+
+        print.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        print.setForeground(new java.awt.Color(183, 30, 30));
+        print.setText("PRINT");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+        jPanel1.add(print);
+        print.setBounds(80, 290, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -430,6 +444,19 @@ public class doctorList extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_arrowsMouseClicked
 
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+           MessageFormat header = new MessageFormat ("CLINIC APPOINTMENT TRACKER");
+       MessageFormat footer = new MessageFormat ("Clinic Appointment Tracker");
+       
+    try{
+       doctable.print(JTable.PrintMode.NORMAL,header,footer);
+    
+    }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
+    }
+    
+    }//GEN-LAST:event_printActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -498,6 +525,7 @@ public class doctorList extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lastname;
     private javax.swing.JTextField middle;
+    private javax.swing.JButton print;
     private javax.swing.JTextField status;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables

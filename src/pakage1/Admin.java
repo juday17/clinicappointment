@@ -5,10 +5,14 @@
  */
 package pakage1;
 
+import config.dbconfig;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import static pakage1.patientList.patienttable;
 
@@ -23,19 +27,20 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
-        ImageIcon icon2= new ImageIcon(getClass().getResource("doctor.png"));
-         Image img2= icon2.getImage().getScaledInstance(doctor.getWidth(), doctor.getHeight(), Image.SCALE_SMOOTH);
-         doctor.setIcon(new ImageIcon(img2));
-         
-         ImageIcon icon3= new ImageIcon(getClass().getResource("arrow2.png"));
-         Image img3= icon3.getImage().getScaledInstance(arrows.getWidth(), arrows.getHeight(), Image.SCALE_SMOOTH);
-         arrows.setIcon(new ImageIcon(img3));
-         
-         ImageIcon icon4= new ImageIcon(getClass().getResource("logout.png"));
-         Image img4= icon4.getImage().getScaledInstance(logout.getWidth(), logout.getHeight(), Image.SCALE_SMOOTH);
-         logout.setIcon(new ImageIcon(img4));
-         btn1.setVisible(true);
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("doctor.png"));
+        Image img2 = icon2.getImage().getScaledInstance(doctor.getWidth(), doctor.getHeight(), Image.SCALE_SMOOTH);
+        doctor.setIcon(new ImageIcon(img2));
+
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("arrow2.png"));
+        Image img3 = icon3.getImage().getScaledInstance(arrows.getWidth(), arrows.getHeight(), Image.SCALE_SMOOTH);
+        arrows.setIcon(new ImageIcon(img3));
+
+        ImageIcon icon4 = new ImageIcon(getClass().getResource("logout.png"));
+        Image img4 = icon4.getImage().getScaledInstance(logout.getWidth(), logout.getHeight(), Image.SCALE_SMOOTH);
+        logout.setIcon(new ImageIcon(img4));
+        btn1.setVisible(true);
     }
+    String link = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +65,9 @@ public class Admin extends javax.swing.JFrame {
         btn3 = new javax.swing.JButton();
         doctorlist = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         tab = new javax.swing.JTabbedPane();
         Book = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -104,42 +112,44 @@ public class Admin extends javax.swing.JFrame {
         firstPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         doctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/doctor.png"))); // NOI18N
-        firstPanel.add(doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 26, 37, 31));
+        firstPanel.add(doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 110, 100));
 
         admin_User.setBackground(new java.awt.Color(183, 30, 30));
         admin_User.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         admin_User.setForeground(new java.awt.Color(255, 255, 255));
         admin_User.setText("Dr. Username");
-        firstPanel.add(admin_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 75, 129, 21));
+        firstPanel.add(admin_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 129, 20));
 
         jLabel3.setBackground(new java.awt.Color(183, 30, 30));
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("49-123-459-1");
-        firstPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 102, 129, -1));
+        firstPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 129, 10));
 
-        btn1.setBackground(new java.awt.Color(255, 255, 255));
+        btn1.setBackground(new java.awt.Color(204, 0, 0));
         btn1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn1.setForeground(new java.awt.Color(153, 0, 0));
         btn1.setText("BOOK");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
-        firstPanel.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 130, -1));
+        firstPanel.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 170, 40));
 
         arrows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
         firstPanel.add(arrows, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 34, 31));
 
-        btn2.setBackground(new java.awt.Color(255, 255, 255));
+        btn2.setBackground(new java.awt.Color(204, 0, 0));
         btn2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn2.setForeground(new java.awt.Color(153, 0, 0));
         btn2.setText("APPOINTMENTS");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
             }
         });
-        firstPanel.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 30));
+        firstPanel.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 180, 30));
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/logout.png"))); // NOI18N
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,7 +157,7 @@ public class Admin extends javax.swing.JFrame {
                 logoutMouseClicked(evt);
             }
         });
-        firstPanel.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 457, 36, 31));
+        firstPanel.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 36, 31));
 
         jLabel4.setBackground(new java.awt.Color(183, 30, 30));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -159,49 +169,76 @@ public class Admin extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
-        firstPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 494, 60, 30));
+        firstPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, 60, 30));
 
-        btn4.setBackground(new java.awt.Color(255, 255, 255));
+        btn4.setBackground(new java.awt.Color(204, 0, 0));
         btn4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn4.setForeground(new java.awt.Color(153, 0, 0));
         btn4.setText("Patient List");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
             }
         });
-        firstPanel.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 230, 30));
+        firstPanel.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 210, 40));
 
-        btn3.setBackground(new java.awt.Color(255, 255, 255));
+        btn3.setBackground(new java.awt.Color(204, 0, 0));
         btn3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn3.setForeground(new java.awt.Color(153, 0, 0));
         btn3.setText("SUMMARY");
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn3ActionPerformed(evt);
             }
         });
-        firstPanel.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 130, 30));
+        firstPanel.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 170, 40));
 
-        doctorlist.setBackground(new java.awt.Color(255, 255, 255));
+        doctorlist.setBackground(new java.awt.Color(204, 0, 0));
         doctorlist.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        doctorlist.setForeground(new java.awt.Color(153, 0, 0));
         doctorlist.setText("Doctor List");
         doctorlist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doctorlistActionPerformed(evt);
             }
         });
-        firstPanel.add(doctorlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 230, 30));
+        firstPanel.add(doctorlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, 40));
 
-        btn5.setBackground(new java.awt.Color(255, 255, 255));
+        btn5.setBackground(new java.awt.Color(204, 0, 0));
         btn5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn5.setForeground(new java.awt.Color(153, 0, 0));
         btn5.setText("Appointment List");
         btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn5ActionPerformed(evt);
             }
         });
-        firstPanel.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 230, 30));
+        firstPanel.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 210, 40));
 
-        jPanel1.add(firstPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 540));
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 0, 0));
+        jButton1.setText("REPORTS ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        firstPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 30));
+
+        jLabel14.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel14.setText("Change");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        firstPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 60, 20));
+        firstPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 70, 20));
+
+        jPanel1.add(firstPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 580));
 
         tab.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -217,7 +254,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(183, 30, 30));
         jLabel1.setText("Last name:");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 0, -1, 44));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 44));
 
         lastname.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lastname.setForeground(new java.awt.Color(183, 30, 30));
@@ -235,7 +272,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(183, 30, 30));
         jLabel8.setText("First name:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 66, -1, 44));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 44));
 
         firstname.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         firstname.setForeground(new java.awt.Color(183, 30, 30));
@@ -246,14 +283,14 @@ public class Admin extends javax.swing.JFrame {
                 firstnameActionPerformed(evt);
             }
         });
-        jPanel4.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 66, 312, 44));
+        jPanel4.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 312, 44));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 116, 312, 11));
 
         jLabel9.setBackground(new java.awt.Color(183, 30, 30));
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(183, 30, 30));
         jLabel9.setText("Middle name:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 133, -1, 44));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 44));
 
         middle.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         middle.setForeground(new java.awt.Color(183, 30, 30));
@@ -264,14 +301,14 @@ public class Admin extends javax.swing.JFrame {
                 middleActionPerformed(evt);
             }
         });
-        jPanel4.add(middle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 133, 312, 44));
+        jPanel4.add(middle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 312, 44));
         jPanel4.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 183, 312, 11));
 
         jLabel10.setBackground(new java.awt.Color(183, 30, 30));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(183, 30, 30));
         jLabel10.setText("Date (mm/dd/yy):");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 267, -1, 44));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, 44));
 
         date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         date.setForeground(new java.awt.Color(183, 30, 30));
@@ -282,14 +319,14 @@ public class Admin extends javax.swing.JFrame {
                 dateActionPerformed(evt);
             }
         });
-        jPanel4.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 267, 312, 44));
+        jPanel4.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 312, 44));
         jPanel4.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 317, 312, 11));
 
         jLabel11.setBackground(new java.awt.Color(183, 30, 30));
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(183, 30, 30));
         jLabel11.setText("Time:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 334, -1, 44));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, 44));
 
         time.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         time.setForeground(new java.awt.Color(183, 30, 30));
@@ -300,7 +337,7 @@ public class Admin extends javax.swing.JFrame {
                 timeActionPerformed(evt);
             }
         });
-        jPanel4.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 334, 312, 44));
+        jPanel4.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 312, 44));
         jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 384, 312, 11));
 
         next.setBackground(new java.awt.Color(255, 255, 255));
@@ -320,7 +357,7 @@ public class Admin extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        jPanel4.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 400, 120, 36));
+        jPanel4.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 120, 36));
 
         cancel.setBackground(new java.awt.Color(255, 255, 255));
         cancel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -339,13 +376,13 @@ public class Admin extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        jPanel4.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 120, 36));
+        jPanel4.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 120, 36));
 
         jLabel12.setBackground(new java.awt.Color(183, 30, 30));
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(183, 30, 30));
         jLabel12.setText("Phone number:");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 200, -1, 44));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, 44));
 
         phone.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         phone.setForeground(new java.awt.Color(183, 30, 30));
@@ -359,7 +396,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel4.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 312, 44));
         jPanel4.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 312, 11));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 78, 630, 473));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 78, 630, 510));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(183, 30, 30));
@@ -447,7 +484,7 @@ public class Admin extends javax.swing.JFrame {
 
         tab.addTab("tab3", summary);
 
-        jPanel1.add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, -30, 630, 570));
+        jPanel1.add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, -30, 630, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -481,7 +518,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
-        loginForm main = new loginForm();      
+        loginForm main = new loginForm();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
@@ -512,34 +549,38 @@ public class Admin extends javax.swing.JFrame {
 
     private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
         // TODO add your handling code here:
-        cancel.setBackground(new Color(255,255,255));
-        cancel.setForeground(new Color(183,30,30));
+        cancel.setBackground(new Color(255, 255, 255));
+        cancel.setForeground(new Color(183, 30, 30));
     }//GEN-LAST:event_cancelMouseExited
 
     private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
         // TODO add your handling code here
-        cancel.setBackground(new Color(183,30,30));
+        cancel.setBackground(new Color(183, 30, 30));
         cancel.setForeground(Color.WHITE);
     }//GEN-LAST:event_cancelMouseEntered
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
-        if(lastname.getText().isEmpty()||firstname.getText().isEmpty()||middle.getText().isEmpty()||date.getText().isEmpty()||time.getText().isEmpty()
-            ||phone.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Please Fill up other fields.","Message",JOptionPane.WARNING_MESSAGE);
-        }else{
+        if (lastname.getText().isEmpty() || firstname.getText().isEmpty() || middle.getText().isEmpty() || date.getText().isEmpty() || time.getText().isEmpty()
+                || phone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Fill up other fields.", "Message", JOptionPane.WARNING_MESSAGE);
+        } else {
             String payment = JOptionPane.showInputDialog("Enter Payment(500): ");
             int quantity = Integer.parseInt(payment);
-            while(quantity<500||quantity<1)
-            {
-                JOptionPane.showMessageDialog(null,"Invalid amount.");
+            while (quantity < 500 || quantity < 1) {
+                JOptionPane.showMessageDialog(null, "Invalid amount.");
                 payment = JOptionPane.showInputDialog("Enter Payment(500): ");
                 quantity = Integer.parseInt(payment);
             }
-            float change = (float)quantity - 500;
-            JOptionPane.showMessageDialog(null,"Change: "+change+" Appointment successfully booked.");
-            Admin.AddRowToJTable(new Object[]{lastname.getText(),firstname.getText(),middle.getText(),phone.getText(),date.getText(),time.getText()});
+            float change = (float) quantity - 500;
+            JOptionPane.showMessageDialog(null, "Change: " + change + " Appointment successfully booked.");
+            Admin.AddRowToJTable(new Object[]{lastname.getText(), firstname.getText(), middle.getText(), phone.getText(), date.getText(), time.getText()});
 
-            lastname.setText("");firstname.setText("");middle.setText("");phone.setText("");date.setText("");time.setText("");
+            lastname.setText("");
+            firstname.setText("");
+            middle.setText("");
+            phone.setText("");
+            date.setText("");
+            time.setText("");
             //       userTable user = new userTable();
             //       user.setVisible(true);
             //  this.dispose();
@@ -550,13 +591,13 @@ public class Admin extends javax.swing.JFrame {
 
     private void nextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextMouseExited
         // TODO add your handling code here:
-        next.setBackground(new Color(255,255,255));
-        next.setForeground(new Color(183,30,30));
+        next.setBackground(new Color(255, 255, 255));
+        next.setForeground(new Color(183, 30, 30));
     }//GEN-LAST:event_nextMouseExited
 
     private void nextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextMouseEntered
         // TODO add your handling code here:
-        next.setBackground(new Color(183,30,30));
+        next.setBackground(new Color(183, 30, 30));
         next.setForeground(Color.WHITE);
     }//GEN-LAST:event_nextMouseEntered
 
@@ -585,16 +626,16 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        int a=JOptionPane.showConfirmDialog(null, "Confirm Exit?");
-        if(a==JOptionPane.YES_OPTION){
+        int a = JOptionPane.showConfirmDialog(null, "Confirm Exit?");
+        if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void doctorlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorlistActionPerformed
-          doctorList dl = new doctorList();
-          dl.setVisible(true);
-          this.dispose();
+        doctorList dl = new doctorList();
+        dl.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_doctorlistActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
@@ -603,10 +644,49 @@ public class Admin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn5ActionPerformed
 
-public static void AddRowToJTable(Object[] dataRow){
-           DefaultTableModel model = (DefaultTableModel)table.getModel();
-           model.addRow(dataRow);
-       }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        report rp = new report();
+        this.dispose();
+        rp.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        dbconfig dbc = new dbconfig();
+        loginForm login = new loginForm();
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnaf = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnaf);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION);
+        File selectedImageFile = browseImageFile.getSelectedFile();
+        String selectedImagePath = selectedImageFile.getAbsolutePath();
+        String link = selectedImagePath;
+        JOptionPane.showMessageDialog(null, selectedImagePath);
+
+        ImageIcon ii = new ImageIcon(selectedImagePath);
+
+        int id = login.id;
+        Image image = ii.getImage().getScaledInstance(doctor.getWidth(), doctor.getHeight(), Image.SCALE_SMOOTH);
+        doctor.setIcon(new ImageIcon(image));
+        int num = dbc.updateData("UPDATE user_db "
+                + "SET u_pic = '" + selectedImagePath.replace("\\", "\\\\") + "'"
+                + "WHERE u_id = '" + id + "'");
+
+        if (num == 0) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Updated Successfully!");
+        }
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    public static void AddRowToJTable(Object[] dataRow) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.addRow(dataRow);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -654,15 +734,18 @@ public static void AddRowToJTable(Object[] dataRow){
     public static javax.swing.JButton btn5;
     private javax.swing.JButton cancel;
     public static javax.swing.JTextField date;
-    private javax.swing.JLabel doctor;
+    public static javax.swing.JLabel doctor;
     public static javax.swing.JButton doctorlist;
     private javax.swing.JPanel firstPanel;
     public static javax.swing.JTextField firstname;
+    public javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

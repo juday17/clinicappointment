@@ -8,7 +8,9 @@ package pakage1;
 import config.dbconfig;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -59,6 +61,7 @@ public class appointmentList extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableappointment = new javax.swing.JTable();
+        print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -114,12 +117,23 @@ public class appointmentList extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(740, 530, 120, 30);
+        jButton1.setBounds(740, 540, 120, 30);
 
         jScrollPane2.setViewportView(tableappointment);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 110, 840, 400);
+        jScrollPane2.setBounds(20, 90, 840, 400);
+
+        print.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        print.setForeground(new java.awt.Color(183, 30, 30));
+        print.setText("PRINT");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+        jPanel1.add(print);
+        print.setBounds(590, 540, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,6 +170,20 @@ public class appointmentList extends javax.swing.JFrame {
         ad.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_arrows1MouseClicked
+
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+    MessageFormat header = new MessageFormat ("CLINIC APPOINTMENT TRACKER");
+       MessageFormat footer = new MessageFormat ("Clinic Appointment Tracker");
+       
+    try{
+       tableappointment.print(JTable.PrintMode.NORMAL,header,footer);
+    
+    }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Cannot be print!"+e.getMessage());
+    }
+    
+                         
+    }//GEN-LAST:event_printActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,6 +230,7 @@ public class appointmentList extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton print;
     private javax.swing.JTable tableappointment;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,13 +1,20 @@
 package pakage1;
 
-
 import config.login_db;
+import java.awt.Image;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.mindrot.jbcrypt.BCrypt;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import pakage1.loginForm;
 
 /*
@@ -15,7 +22,6 @@ import pakage1.loginForm;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author HP
@@ -28,6 +34,7 @@ public class register extends javax.swing.JFrame {
     public register() {
         initComponents();
     }
+    public static String link = " ";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,6 +78,8 @@ public class register extends javax.swing.JFrame {
         arrows = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -92,43 +101,43 @@ public class register extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Register as:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(120, 380, 170, 30);
+        jLabel5.setBounds(130, 450, 170, 30);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Lastname:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(120, 220, 170, 30);
+        jLabel6.setBounds(130, 290, 170, 30);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(120, 260, 170, 40);
+        jLabel7.setBounds(130, 330, 170, 40);
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Phone No.");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(120, 300, 170, 40);
+        jLabel8.setBounds(130, 370, 170, 40);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Password:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(120, 340, 170, 40);
+        jLabel9.setBounds(130, 410, 170, 40);
 
         firstname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(firstname);
-        firstname.setBounds(290, 180, 450, 30);
+        firstname.setBounds(300, 250, 450, 30);
 
         lastname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(lastname);
-        lastname.setBounds(290, 220, 450, 30);
+        lastname.setBounds(300, 290, 450, 30);
 
         username.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(username);
-        username.setBounds(290, 260, 450, 30);
+        username.setBounds(300, 330, 450, 30);
 
         jPanel2.setBackground(new java.awt.Color(183, 30, 30));
         jPanel2.setLayout(null);
@@ -198,7 +207,7 @@ public class register extends javax.swing.JFrame {
 
         no.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(no);
-        no.setBounds(290, 300, 450, 30);
+        no.setBounds(300, 370, 450, 30);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
@@ -209,19 +218,25 @@ public class register extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(630, 470, 130, 30);
+        jButton1.setBounds(640, 540, 130, 30);
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Firstname:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(120, 180, 170, 30);
+        jLabel19.setBounds(130, 250, 170, 30);
 
         register.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secretary", "Doctor" }));
         jPanel1.add(register);
-        register.setBounds(290, 380, 450, 30);
+        register.setBounds(300, 450, 450, 30);
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
         jPanel1.add(password);
-        password.setBounds(291, 340, 450, 30);
+        password.setBounds(300, 410, 450, 30);
 
         arrows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pakage1/arrow2.png"))); // NOI18N
         arrows.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,15 +269,40 @@ public class register extends javax.swing.JFrame {
         jPanel1.add(jLabel21);
         jLabel21.setBounds(820, 10, 50, 40);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ADD PHOTO");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(130, 120, 150, 100);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -270,55 +310,65 @@ public class register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Connection conn;
+        
         if (firstname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(lastname.getText().trim().isEmpty()) {
+        } else if (lastname.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if (username.getText().trim().isEmpty()) {
+        } else if (username.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Username!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(no.getText().trim().isEmpty()) {
+        } else if (no.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;      
-        }else if(password.getText().trim().isEmpty()) {
+            return;
+        } else if (password.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         String fname = firstname.getText();
         String lname = lastname.getText();
         String uname = username.getText();
         String cont = no.getText();
-        String pass = String.valueOf(password.getPassword());    
-               
-         
+        String pass = String.valueOf(password.getPassword());
+        String hashedpassword = BCrypt.hashpw(pass, BCrypt.gensalt());
+
         PreparedStatement ps;
-        ResultSet rs;
-        String registerUserQuery = "INSERT INTO `user_db`(`u_firstname`, `u_lastname`, `u_username`, `u_contact`, `u_password`) VALUES (?,?,?,?,?)";
-                 
-                 try {
-                     
-                     ps = login_db.getConnection().prepareStatement(registerUserQuery);
-                     ps.setString(1, fname);
-                     ps.setString(2, lname);
-                     ps.setString(3, uname);
-                     ps.setString(4, cont);
-                     ps.setString(5, pass);
-                    
-                           if(ps.executeUpdate() != 0){
-                             JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
-                         }else{
-                             JOptionPane.showMessageDialog(null, "Error: Check Your Information");
-                         }
-                 } catch (SQLException ex) {
-                     Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                 
-                loginForm lo = new loginForm();
-                lo.setVisible(true);
-                this.dispose();  
+
+        String registerUserQuery = "INSERT INTO `user_db`(`u_firstname`, `u_lastname`, `u_username`, `u_contact`, `u_password`, `u_pic`) VALUES (?,?,?,?,?,?)";
+        
+        try {
+
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/clinicappointment", "root", "");
+//            PreparedStatement statement = conn.prepareStatement("select * from user_db where u_username = '"+username+"'");
+//            ResultSet rs = statement.executeQuery();
+            ps = login_db.getConnection().prepareStatement(registerUserQuery);
+            ps.setString(1, fname);
+            ps.setString(2, lname);
+            ps.setString(3, uname);
+            ps.setString(4, cont);
+            ps.setString(5, hashedpassword);
+            ps.setString(6, link.replace("\\", "\\\\"));
+
+//            if(rs.next()){
+//                
+//            }
+            
+            if (ps.executeUpdate() != 0) {
+                JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        loginForm lo = new loginForm();
+        lo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void arrowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowsMouseClicked
@@ -332,11 +382,33 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        int a=JOptionPane.showConfirmDialog(null, "Confirm Exit?");
-        if(a==JOptionPane.YES_OPTION){
+        int a = JOptionPane.showConfirmDialog(null, "Confirm Exit?");
+        if (a == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnaf = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnaf);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION);
+        File selectedImageFile = browseImageFile.getSelectedFile();
+        String selectedImagePath = selectedImageFile.getAbsolutePath();
+        link = selectedImagePath;
+        JOptionPane.showMessageDialog(null, selectedImagePath);
+
+        ImageIcon ii = new ImageIcon(selectedImagePath);
+
+        Image image = ii.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
+        jLabel2.setIcon(new ImageIcon(image));
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -388,6 +460,7 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
@@ -398,6 +471,7 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
